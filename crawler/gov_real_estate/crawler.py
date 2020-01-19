@@ -20,7 +20,7 @@ def estate_crawler(year, quarter):
     src_path = "https://plvr.land.moi.gov.tw//DownloadSeason?season=" + series + "&type=zip&fileName=lvr_landcsv.zip";
     res = requests.get(src_path);
 
-    downloadZip = "estate" + str(year) + str(quarter) + '.zip'
+    downloadZip = "estate" + str(year) + "S" + str(quarter) + '.zip'
     open(downloadZip, 'wb').write(res.content)
 
     directory = "estate" + series;
@@ -32,12 +32,12 @@ def estate_crawler(year, quarter):
 
     time.sleep(10)
 
-estate_crawler(108, 4)
-estate_crawler(109, 1)
+#estate_crawler(108, 4)
+#estate_crawler(109, 1)
 
-start_year = 105;
+start_year = 104;
 end_year = 109;
 
 for year in range(start_year, end_year):
-    for quarter in range(1, 4):
+    for quarter in range(1, 5):
         estate_crawler(year, quarter)
